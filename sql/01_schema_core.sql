@@ -77,3 +77,10 @@ CREATE TABLE phq_scores (
   CONSTRAINT fk_phq_user FOREIGN KEY (user_id) REFERENCES users(user_id),
   CONSTRAINT chk_phq_json CHECK (JSON_VALID(answers))
 ) ENGINE=InnoDB;
+
+
+
+INSERT INTO users (user_id, full_name, dob, district, phone)
+VALUES ('u-1','Asha Devi','1991-03-11','Bengaluru Rural','9991112222')
+ON DUPLICATE KEY UPDATE full_name=VALUES(full_name);
+
